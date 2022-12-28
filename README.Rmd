@@ -3,17 +3,28 @@ title: "COFFEE APP"
 author: "Takahiro Hashimoto"
 date: "`r Sys.Date()`"
 output: 
+  pdf_document:
+    toc: true
+    number_section: true
   html_document:
     toc: true
     number_section: true
     toc_float: true
     theme: paper
     code_folding: show
+always_allow_html: true
 ---
 
 # System
-```{mermaid }
-a --> b
-b --> c
-c --> a
+```{r flowchart}
+library(DiagrammeR)
+mermaid("
+  graph TB
+    a --> b
+    b --> c
+    c --> a
+        ")
 ```
+
+# Note
+* Before exporting as pdf, run `tinytex::install_tinytex()` in console.
