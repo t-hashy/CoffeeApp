@@ -1,0 +1,19 @@
+---
+title: "COFFEE APP"
+author: "Takahiro Hashimoto"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    number_section: true
+    toc_float: true
+    theme: paper
+    code_folding: show
+---
+
+# System
+```{mermaid }
+a --> b
+b --> c
+c --> a
+```
