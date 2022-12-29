@@ -14,10 +14,16 @@ output:
     toc: true
     number_section: true
 always_allow_html: true
+params:
+  test: "test"
 ---
 
 ```{r base setting, include=FALSE}
 library(DiagrammeR) # For mermaid
+library(DT) # Interactive data table
+library(ggplot2) # Basic plotting
+library(plotly) # Interactive plotting
+library(leaflet)
 ```
 
 
