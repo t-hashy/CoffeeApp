@@ -4154,8 +4154,8 @@ border-radius: 0px;
 <hr />
 <div id="sequence" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Sequence</h1>
-<div class="DiagrammeR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-2843ed638eaea5d47495" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-2843ed638eaea5d47495">{"x":{"diagram":"\n  graph TD\n    Get{Get Beans}-->|Add Info|Bn((lstBeans))\n    Bn-->|When Green Beans|Roast{Roast Beans}\n    Roast-->|Add Info|Rt((tsRoasting))\n    Rt-->|Add Info|Bn\n    Brew{Brewing}-->|Add Info|Br((tsBrewing))\n    Bn-->|Merge Info|Br\n    Br-->|Create Prediction Models|prd[Prediction<br><br>Models]\n    Br-->|Plot PCA|pca[Principal<br>Component<br> Analysis]\n    pca-->|Check Models|prd\n    prd-->|Suggestion for<br>a Better Brewing|Brew\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e5ae45a9bc101a876f9e" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-e5ae45a9bc101a876f9e">{"x":{"diagram":"\n  graph TD\n    subgraph Get Beans\n      Get{Get Beans}-->|Add Info|Bn((lstBeans))\n    end\n    Bn-->|When Green Beans|Roast{Roast Beans}\n    subgraph Roast Beans\n      Roast-->|Add Info|Rt((tsRoasting))\n    end\n      Rt-->|Add Info|Bn\n    subgraph Brewing\n      Brew{Brewing}-->|Add Info|Br((tsBrewing))\n      Bn-->|Merge Info|Br\n    end\n    subgraph Analytics\n    Br-->|Create Prediction Models|prd[Prediction<br><br>Models]\n    Br-->|Plot PCA|pca[Principal<br>Component<br> Analysis]\n    pca-->|Check Models|prd\n    end\n    prd-->|Suggestion for<br>a Better Brewing|Brew\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="methodology" class="section level1 tabset" number="2">
 <h1 class="tabset"><span class="header-section-number">2</span>

@@ -29,15 +29,23 @@ library(DiagrammeR) # For mermaid
 ```{r flowchart, echo=FALSE}
 DiagrammeR::mermaid("
   graph TD
-    Get{Get Beans}-->|Add Info|Bn((lstBeans))
+    subgraph Get Beans
+      Get{Get Beans}-->|Add Info|Bn((lstBeans))
+    end
     Bn-->|When Green Beans|Roast{Roast Beans}
-    Roast-->|Add Info|Rt((tsRoasting))
-    Rt-->|Add Info|Bn
-    Brew{Brewing}-->|Add Info|Br((tsBrewing))
-    Bn-->|Merge Info|Br
+    subgraph Roast Beans
+      Roast-->|Add Info|Rt((tsRoasting))
+    end
+      Rt-->|Add Info|Bn
+    subgraph Brewing
+      Brew{Brewing}-->|Add Info|Br((tsBrewing))
+      Bn-->|Merge Info|Br
+    end
+    subgraph Analytics
     Br-->|Create Prediction Models|prd[Prediction<br><br>Models]
     Br-->|Plot PCA|pca[Principal<br>Component<br> Analysis]
     pca-->|Check Models|prd
+    end
     prd-->|Suggestion for<br>a Better Brewing|Brew
     ")
 ```
