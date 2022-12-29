@@ -1,0 +1,120 @@
+---
+title: "COFFEE APP STRUCTURE SHEET"
+subtitle: "Explore the best ever coffee experience."
+author: "Takahiro Hashimoto"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    number_section: true
+    toc_float: true
+    theme: paper
+    code_folding: show
+  pdf_document:
+    toc: true
+    number_section: true
+always_allow_html: true
+---
+
+```{r base setting, include=FALSE}
+library(DiagrammeR) # For mermaid
+```
+
+
+------------------------------------------------------------------------
+
+
+# Sequence
+
+```{r flowchart, echo=FALSE}
+DiagrammeR::mermaid("
+  graph TD
+    Get{Get Beans}-->|Add Info|Bn((lstBeans))
+    Bn-->|When Green Beans|Roast{Roast Beans}
+    Roast-->|Add Info|Rt((tsRoasting))
+    Rt-->|Add Info|Bn
+    Brew{Brewing}-->|Add Info|Br((tsBrewing))
+    Bn-->|Merge Info|Br
+    Br-->|Create Prediction Models|prd[Prediction<br><br>Models]
+    Br-->|Plot PCA|pca[Principal<br>Component<br> Analysis]
+    pca-->|Check Models|prd
+    prd-->|Suggestion for<br>a Better Brewing|Brew
+    ")
+```
+
+# Methodology {.tabset}
+
+## Prediction Model
+Using simple OLS.<br>
+Note however that this might lead to indigenous, so better to use Instrumental variables.
+$$
+y_{brt}=\sum_{\{I|I=b,r,d\}}^i{w_ix_i} + \epsilon_{brt}  \\
+y:Taste, \space b:Beans,\space r:Roasting, \space t:Time, \space d:Dripping, \space \epsilon:Error
+$$ 
+
+## Classification Model
+Using Principal Component Analysis (PCA).<br>
+Plot the results and check also the indigenous between variables especially with roastings and beans.
+
+# Data Sets {.tabset}
+
+## lstBeans
+| variable | type |
+| -------- | ---- |
+| uid | strings |
+| date.get | date |
+| store | string |
+| condition | boolean [1:roasted, 0:green]| 
+| country | string| 
+| grade | string| 
+| variety | string| 
+| notes | strings| 
+| to.update | strings| 
+| expired | boolean| 
+
+## tsRoasting
+| variable | type |
+| -------- | ---- |
+| uid | strings |
+| date | date |
+| beans | data frame from [lstBeans] | 
+| condition | ordered integer [1:light, 3:medium, 5:dark]| 
+| seconds | integer| 
+| notes | strings: how to roast| 
+| to.update | strings| 
+| expired | boolean| 
+
+## tsBrewing
+| variable | type |
+| -------- | ---- |
+| uid | strings |
+| date | date |
+| timing | ordered integer [1:morning, 2:noon, 3:afternoon, 4:night, 5:midnight]| 
+| roasting | data frame from [tsRoasting] | 
+| pour.count | integer| 
+| pour.seconds.total | integer| 
+| pour1.seconds | integer| 
+| pour1.gram | decimal| 
+| pour2.seconds | integer| 
+| pour2.gram | decimal| 
+| pour3.seconds | integer| 
+| pour3.gram | decimal| 
+| pour4.seconds | integer| 
+| pour4.gram | decimal| 
+| pour5.seconds | integer| 
+| pour5.gram | decimal| 
+| pour6.seconds | integer| 
+| pour6.gram | decimal| 
+| pour7.seconds | integer| 
+| pour7.gram | decimal| 
+| pour8.seconds | integer| 
+| pour8.gram | decimal| 
+| taste | ordered integer [1:bad, 3:normal, 5:excellent]| 
+| notes | strings| 
+| to.update | strings| 
+| expired | boolean| 
+
+# Notes
+- Before exporting as pdf, follow the lines below. Skipping this line will lead to errors when exporting pdf.
+  - Run `tinytex::install_tinytex| | ` in console.
+  - Add `always_allow_html: true` in YAML
