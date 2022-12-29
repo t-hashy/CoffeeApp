@@ -19,14 +19,19 @@ params:
 ---
 
 ```{r base setting, include=FALSE}
-library(DiagrammeR) # For mermaid
-library(DT) # Interactive data table
+# Chunk setting
+knitr::opts_chunk$set(echo = TRUE)
+# Basic Data Handling
+library(tidyverse) # Data frame handling
+library(GGally) # Multiple variable handling
 library(ggplot2) # Basic plotting
+# Rmd specialty
+library(DiagrammeR) # Using Mermaid
+library(leaflet) # TeX readings
+# Interactive plotting
+library(DT) # Interactive data table
 library(plotly) # Interactive plotting
-library(leaflet)
-
 ```
-
 
 ------------------------------------------------------------------------
 
