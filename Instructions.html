@@ -11,7 +11,7 @@
 
 <meta name="author" content="Takahiro Hashimoto" />
 
-<meta name="date" content="2022-12-29" />
+<meta name="date" content="2022-12-30" />
 
 <title>COFFEE APP STRUCTURE SHEET</title>
 
@@ -4146,7 +4146,7 @@ border-radius: 0px;
 <h1 class="title toc-ignore">COFFEE APP STRUCTURE SHEET</h1>
 <h3 class="subtitle">Explore the best ever coffee experience.</h3>
 <h4 class="author">Takahiro Hashimoto</h4>
-<h4 class="date">2022-12-29</h4>
+<h4 class="date">2022-12-30</h4>
 
 </div>
 
@@ -4154,8 +4154,8 @@ border-radius: 0px;
 <hr />
 <div id="sequence" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Sequence</h1>
-<div class="DiagrammeR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-1a05fc42f284223fdc4f" style="width:672px;height:480px;"></div>
-<script type="application/json" data-for="htmlwidget-1a05fc42f284223fdc4f">{"x":{"diagram":"\n  graph TD\n    subgraph Get Beans\n      Get{Get Beans}-->|Add Info|Bn((lstBeans))\n    end\n    Bn-->|When Green Beans|Roast{Roast Beans}\n    subgraph Roast Beans\n      Roast-->|Add Info|Rt((tsRoasting))\n    end\n      Rt-->|Add Info|Bn\n    subgraph Brewing\n      Brew{Brewing}-->|Add Info|Br((tsBrewing))\n      Bn-->|Merge Info|Br\n    end\n    subgraph Analytics\n    Br-->|Create Prediction Models|prd[Prediction<br><br>Models]\n    Br-->|Plot PCA|pca[Principal<br>Component<br> Analysis]\n    pca-->|Check Models|prd\n    end\n    prd-->|Suggestion for<br>a Better Brewing|Brew\n    "},"evals":[],"jsHooks":[]}</script>
+<div class="DiagrammeR html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-fc34b7349f82fd2ee89d" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-fc34b7349f82fd2ee89d">{"x":{"diagram":"\n  graph TD\n    subgraph Get Beans\n      Get{Get Beans}-->|Add Info|Bn((lstBeans))\n    end\n    Bn-->|When Green Beans|Roast{Roast Beans}\n    subgraph Roast Beans\n      Roast-->|Add Info|Rt((tsRoasting))\n    end\n      Rt-->|Add Info|Bn\n    subgraph Brewing\n      Brew{Brewing}-->|Add Info|Br((tsBrewing))\n      Bn-->|Merge Info|Br\n    end\n    subgraph Analytics\n    Br-->|Create Prediction Models|prd[Prediction<br><br>Models]\n    Br-->|Plot PCA|pca[Principal<br>Component<br> Analysis]\n    pca-->|Check Models|prd\n    end\n    prd-->|Suggestion for<br>a Better Brewing|Brew\n    "},"evals":[],"jsHooks":[]}</script>
 </div>
 <div id="methodology" class="section level1 tabset" number="2">
 <h1 class="tabset"><span class="header-section-number">2</span>
